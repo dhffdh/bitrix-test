@@ -1,0 +1,11 @@
+.b-canvas-item{
+    margin-bottom: 1em;
+    padding: 0.5em;
+
+}
+
+.b-canvas-items{
+    display: flex;
+    flex-wrap: wrap;
+
+}

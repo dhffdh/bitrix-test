@@ -1,0 +1,10 @@
+.b-canvas-wrap{
+    border:1px solid #aaa;
+    max-width: 600px;
+}
+.b-control{
+    margin-top: 1em;
+    display: flex;
+    justify-content: space-between;
+    max-width: 600px;
+}
