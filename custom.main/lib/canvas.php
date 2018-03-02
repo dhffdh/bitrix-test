@@ -8,7 +8,12 @@ use Bitrix\Main\IO\File;
 use Bitrix\Main\Application;
 use \CFile;
 
-
+/**
+ * ОРМ для изображений
+ *
+ * Class CanvasTable
+ * @package Custom\Main
+ */
 class CanvasTable extends Entity\DataManager
 {
     /**
@@ -46,6 +51,14 @@ class CanvasTable extends Entity\DataManager
         );
     }
 
+
+    /**
+     * Обновление рисунка,с удалением с диска старого
+     *
+     * @param $id
+     * @param $oldImage
+     * @param $newImageId
+     */
     public static function updateImage($id,$oldImage,$newImageId){
 
         try{
@@ -59,6 +72,12 @@ class CanvasTable extends Entity\DataManager
 
     }
 
+    /**
+     * Перобразование base64 строки в файл и сохранение в БД файлов
+     *
+     * @param $base64str
+     * @return bool|int|mixed|string
+     */
     public static function saveCanvasFile($base64str){
 
         $fileId = false;
@@ -85,6 +104,11 @@ class CanvasTable extends Entity\DataManager
     }
 
 
+    /**
+     * Удаление рисунка, а так же его картинки из диска
+     *
+     * @param $id
+     */
     public static function removeItem($id){
 
         try{

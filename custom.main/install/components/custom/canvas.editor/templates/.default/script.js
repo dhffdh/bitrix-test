@@ -1,6 +1,7 @@
 $(document).ready(function () {
 
 
+    //Подключение библиотеки fabric.js
     var canvas = new fabric.Canvas('js-canvas-container', {
         isDrawingMode: true
     });
@@ -13,6 +14,8 @@ $(document).ready(function () {
         $form = $('#js-canvas-form');
 
 
+
+    // если есть картинка в дата утрибуте,то подгружаем её в канвас
     if(!!$canvas.data('image') && $canvas.data('image').length > 0){
 
         fabric.Image.fromURL($canvas.data('image'), function(myImg) {
@@ -22,6 +25,7 @@ $(document).ready(function () {
 
     }
 
+    //очистка поля
     $clearBtn.on('click', function() {
         canvas.clear();
     });
@@ -36,13 +40,14 @@ $(document).ready(function () {
 
         $saveBtn.attr('disabled','1').text('...');
 
+        //подгружаем рисунок как base64 строку в запрос
         formData.push({name: 'base64', value: base64});
 
         //console.log('formData',formData);
 
         $.ajax({
             type: "POST",
-            url: "/local/components/custom/canvas.editor/ajax.php",
+            url: "/local/components/custom/canvas.editor/ajax.php", //хард код, нужно будет убрать
             data: formData,
             dataType: 'json',
             success: function(data){

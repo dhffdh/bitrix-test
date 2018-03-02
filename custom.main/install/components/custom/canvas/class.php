@@ -34,7 +34,6 @@ class Canvas extends CBitrixComponent
 
         global $APPLICATION;
 
-
         $arVariableAliases = CComponentEngine::makeComponentVariableAliases(array('ID' => 'ID'), array());
         CComponentEngine::initComponentVariables(false, array("ID","NEW"), $arVariableAliases, $arVariables);
 
